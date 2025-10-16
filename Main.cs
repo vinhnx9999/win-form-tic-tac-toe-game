@@ -19,8 +19,8 @@ namespace WinTicTacToe
         private readonly int[,] _vtMap;
         private readonly Stack<Chess> _chesses;
         private Chess _chess;
-        private readonly int[] Attack = new int[7] { 0, 9, 54, 162, 1458, 13112, 118008 };
-        private readonly int[] Defense = new int[7] { 0, 3, 27, 99, 729, 6561, 59049 };
+        private readonly int[] ComputerAttack = new int[] { 0, 9, 54, 162, 1458, 13112, 118008 };
+        private readonly int[] ComputerDefense = new int[] { 0, 3, 27, 99, 729, 6561, 59049 };
 
         public Main()
         {
@@ -246,11 +246,10 @@ namespace WinTicTacToe
             if (row == 2 && ediagonal == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) column = 3;
             if (ediagonal == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) column = 3;
 
-            long Sum = Attack[row] + Attack[column] + Attack[mdiagonal] + Attack[ediagonal];
+            long Sum = ComputerAttack[row] + ComputerAttack[column] + ComputerAttack[mdiagonal] + ComputerAttack[ediagonal];
 
             return Sum;
         }
-
 
         private long EnemyChesses(int x, int y)
         {
@@ -333,7 +332,7 @@ namespace WinTicTacToe
             if (row == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && sr == 1 && sr_ == 1) column = 3;
             if (row == 2 && ediagonal == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) column = 3;
             if (ediagonal == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) column = 3;
-            long Sum = Defense[row] + Defense[column] + Defense[mdiagonal] + Defense[ediagonal];
+            long Sum = ComputerDefense[row] + ComputerDefense[column] + ComputerDefense[mdiagonal] + ComputerDefense[ediagonal];
 
             return Sum;
         }
@@ -406,7 +405,7 @@ namespace WinTicTacToe
                 else
                 {
                     if (_player == 1)
-                        MessageBox.Show("Player1 Win");
+                        MessageBox.Show("Vinh Win");
                     else
                         MessageBox.Show("Player2 Win");
                 }
