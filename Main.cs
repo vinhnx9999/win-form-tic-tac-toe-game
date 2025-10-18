@@ -85,12 +85,14 @@ namespace WinTicTacToe
             int x = lb.Top / AppConstant.BorderChess - 1, y = lb.Left / AppConstant.BorderChess;
             if (_vtMap[x, y] != 0)
                 return;
+
             if (_isComputer)
             {
                 _player = 1;
                 psbCooldownTime.Value = 0;
                 tmCountDown.Start();
-                lb.Image = Properties.Resources.O;
+                lb.Image = Properties.Resources.o;
+                picUser.Image = Properties.Resources.computer1;
                 _vtMap[x, y] = 1;
                 CheckStep(x, y);
                 CptFindChess();
@@ -101,24 +103,26 @@ namespace WinTicTacToe
                 {
                     psbCooldownTime.Value = 0;
                     tmCountDown.Start();
-                    lb.Image = Properties.Resources.O;
+                    lb.Image = Properties.Resources.o;
                     _vtMap[x, y] = 1;
                     CheckStep(x, y);
 
                     _player = 2;
-                    ptbPayer.Image = Properties.Resources.Xcopy;
+                    ptbPayer.Image = Properties.Resources.xcopy;
                     txtNamePlayer.Text = "Player2";
+                    picUser.Image = Properties.Resources.player21;
                 }
                 else
                 {
                     psbCooldownTime.Value = 0;
-                    lb.Image = Properties.Resources.X;
+                    lb.Image = Properties.Resources.x;
                     _vtMap[x, y] = 2;
                     CheckStep(x, y);
 
                     _player = 1;
-                    ptbPayer.Image = Properties.Resources.OMG;
+                    ptbPayer.Image = Properties.Resources.omg;
                     txtNamePlayer.Text = "Vinh";
+                    picUser.Image = Properties.Resources.player11;
                 }
             }
             _chess = new Chess(lb, x, y);
@@ -151,7 +155,7 @@ namespace WinTicTacToe
         {
             _player = 0;
             psbCooldownTime.Value = 0;
-            _map[x + 1, y].Image = Properties.Resources.X;
+            _map[x + 1, y].Image = Properties.Resources.x;
 
             _vtMap[x, y] = 2;
             CheckStep(x, y);
@@ -164,89 +168,99 @@ namespace WinTicTacToe
         {
             return EnemyChesses(x, y) + ComputerChesses(x, y);
         }
+
         private long ComputerChesses(int x, int y)
         {
             int i = x - 1, j = y;
-            int column = 0, row = 0, mdiagonal = 0, ediagonal = 0;
+            int curColumn = 0, curRow = 0, mLine = 0, across = 0;
             int sc_ = 0, sc = 0, sr_ = 0, sr = 0, sm_ = 0, sm = 0, se_ = 0, se = 0;
+
             while (_vtMap[i, j] == 2 && i >= 0)
             {
-                column++;
+                curColumn++;
                 i--;
             }
             if (_vtMap[i, j] == 0) sc_ = 1;
             i = x + 1;
+
             while (_vtMap[i, j] == 2 && i <= _rows)
             {
-                column++;
+                curColumn++;
                 i++;
             }
             if (_vtMap[i, j] == 0) sc = 1;
             i = x; j = y - 1;
+
             while (_vtMap[i, j] == 2 && j >= 0)
             {
-                row++;
+                curRow++;
                 j--;
             }
             if (_vtMap[i, j] == 0) sr_ = 1;
             j = y + 1;
+
             while (_vtMap[i, j] == 2 && j <= _columns)
             {
-                row++;
+                curRow++;
                 j++;
             }
             if (_vtMap[i, j] == 0) sr = 1;
             i = x - 1; j = y - 1;
+
             while (_vtMap[i, j] == 2 && i >= 0 && j >= 0)
             {
-                mdiagonal++;
+                mLine++;
                 i--;
                 j--;
             }
             if (_vtMap[i, j] == 0) sm_ = 1;
             i = x + 1; j = y + 1;
+
             while (_vtMap[i, j] == 2 && i <= _rows && j <= _columns)
             {
-                mdiagonal++;
+                mLine++;
                 i++;
                 j++;
             }
             if (_vtMap[i, j] == 0) sm = 1;
             i = x - 1; j = y + 1;
+
             while (_vtMap[i, j] == 2 && i >= 0 && j <= _columns)
             {
-                ediagonal++;
+                across++;
                 i--;
                 j++;
             }
             if (_vtMap[i, j] == 0) se_ = 1;
             i = x + 1; j = y - 1;
+
             while (_vtMap[i, j] == 2 && i <= _rows && j >= 0)
             {
-                ediagonal++;
+                across++;
                 i++;
                 j--;
             }
+
             if (_vtMap[i, j] == 0) se = 1;
 
-            if (column == 4) column = 5;
-            if (row == 4) row = 5;
-            if (mdiagonal == 4) mdiagonal = 5;
-            if (ediagonal == 4) ediagonal = 5;
+            if (curColumn == AppConstant.LineToWin - 1) curColumn = AppConstant.LineToWin;
+            if (curRow == AppConstant.LineToWin - 1) curRow = AppConstant.LineToWin;
+            if (mLine == AppConstant.LineToWin - 1) mLine = AppConstant.LineToWin;
+            if (across == AppConstant.LineToWin - 1) across = AppConstant.LineToWin;
 
-            if (column == 3 && sc == 1 && sc_ == 1) column = 4;
-            if (row == 3 && sr == 1 && sr_ == 1) row = 4;
-            if (mdiagonal == 3 && sm == 1 && sm_ == 1) mdiagonal = 4;
-            if (ediagonal == 3 && se == 1 && se_ == 1) ediagonal = 4;
+            if (curColumn == 3 && sc == 1 && sc_ == 1) curColumn = 4;
+            if (curRow == 3 && sr == 1 && sr_ == 1) curRow = 4;
+            if (mLine == 3 && sm == 1 && sm_ == 1) mLine = 4;
+            if (across == 3 && se == 1 && se_ == 1) across = 4;
 
-            if (column == 2 && row == 2 && sc == 1 && sc_ == 1 && sr == 1 && sr_ == 1) column = 3;
-            if (column == 2 && mdiagonal == 2 && sc == 1 && sc_ == 1 && sm == 1 && sm_ == 1) column = 3;
-            if (column == 2 && ediagonal == 2 && sc == 1 && sc_ == 1 && se == 1 && se_ == 1) column = 3;
-            if (row == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && sr == 1 && sr_ == 1) column = 3;
-            if (row == 2 && ediagonal == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) column = 3;
-            if (ediagonal == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) column = 3;
+            if (curColumn == 2 && curRow == 2 && sc == 1 && sc_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
+            if (curColumn == 2 && mLine == 2 && sc == 1 && sc_ == 1 && sm == 1 && sm_ == 1) curColumn = 3;
+            if (curColumn == 2 && across == 2 && sc == 1 && sc_ == 1 && se == 1 && se_ == 1) curColumn = 3;
+            if (curRow == 2 && mLine == 2 && sm == 1 && sm_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
+            if (curRow == 2 && across == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
+            if (across == 2 && mLine == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) curColumn = 3;
 
-            long Sum = ComputerAttack[row] + ComputerAttack[column] + ComputerAttack[mdiagonal] + ComputerAttack[ediagonal];
+            long Sum = ComputerAttack[curRow] + ComputerAttack[curColumn] + ComputerAttack[mLine] + ComputerAttack[across];
 
             return Sum;
         }
@@ -255,84 +269,93 @@ namespace WinTicTacToe
         {
             int i = x - 1, j = y;
             int sc_ = 0, sc = 0, sr_ = 0, sr = 0, sm_ = 0, sm = 0, se_ = 0, se = 0;
-            int column = 0, row = 0, mdiagonal = 0, ediagonal = 0;
+            int curColumn = 0, curRow = 0, mLine = 0, across = 0;
+
             while (_vtMap[i, j] == 1 && i >= 0)
             {
-                column++;
+                curColumn++;
                 i--;
             }
             if (_vtMap[i, j] == 0) sc_ = 1;
             i = x + 1;
+
             while (_vtMap[i, j] == 1 && i <= _rows)
             {
-                column++;
+                curColumn++;
                 i++;
             }
             if (_vtMap[i, j] == 0) sc = 1;
             i = x; j = y - 1;
+
             while (_vtMap[i, j] == 1 && j >= 0)
             {
-                row++;
+                curRow++;
                 j--;
             }
             if (_vtMap[i, j] == 0) sr_ = 1;
             j = y + 1;
+
             while (_vtMap[i, j] == 1 && j <= _columns)
             {
-                row++;
+                curRow++;
                 j++;
             }
             if (_vtMap[i, j] == 0) sr = 1;
             i = x - 1; j = y - 1;
+
             while (_vtMap[i, j] == 1 && i >= 0 && j >= 0)
             {
-                mdiagonal++;
+                mLine++;
                 i--;
                 j--;
             }
             if (_vtMap[i, j] == 0) sm_ = 1;
             i = x + 1; j = y + 1;
+
             while (_vtMap[i, j] == 1 && i <= _rows && j <= _columns)
             {
-                mdiagonal++;
+                mLine++;
                 i++;
                 j++;
             }
             if (_vtMap[i, j] == 0) sm = 1;
             i = x - 1; j = y + 1;
+
             while (_vtMap[i, j] == 1 && i >= 0 && j <= _columns)
             {
-                ediagonal++;
+                across++;
                 i--;
                 j++;
             }
             if (_vtMap[i, j] == 0) se_ = 1;
             i = x + 1; j = y - 1;
+
             while (_vtMap[i, j] == 1 && i <= _rows && j >= 0)
             {
-                ediagonal++;
+                across++;
                 i++;
                 j--;
             }
             if (_vtMap[i, j] == 0) se = 1;
 
-            if (column == 4) column = 5;
-            if (row == 4) row = 5;
-            if (mdiagonal == 4) mdiagonal = 5;
-            if (ediagonal == 4) ediagonal = 5;
+            if (curColumn == AppConstant.LineToWin - 1) curColumn = AppConstant.LineToWin;
+            if (curRow == AppConstant.LineToWin - 1) curRow = AppConstant.LineToWin;
+            if (mLine == AppConstant.LineToWin - 1) mLine = AppConstant.LineToWin;
+            if (across == AppConstant.LineToWin -1) across = AppConstant.LineToWin;
 
-            if (column == 3 && sc == 1 && sc_ == 1) column = 4;
-            if (row == 3 && sr == 1 && sr_ == 1) row = 4;
-            if (mdiagonal == 3 && sm == 1 && sm_ == 1) mdiagonal = 4;
-            if (ediagonal == 3 && se == 1 && se_ == 1) ediagonal = 4;
+            if (curColumn == 3 && sc == 1 && sc_ == 1) curColumn = 4;
+            if (curRow == 3 && sr == 1 && sr_ == 1) curRow = 4;
+            if (mLine == 3 && sm == 1 && sm_ == 1) mLine = 4;
+            if (across == 3 && se == 1 && se_ == 1) across = 4;
 
-            if (column == 2 && row == 2 && sc == 1 && sc_ == 1 && sr == 1 && sr_ == 1) column = 3;
-            if (column == 2 && mdiagonal == 2 && sc == 1 && sc_ == 1 && sm == 1 && sm_ == 1) column = 3;
-            if (column == 2 && ediagonal == 2 && sc == 1 && sc_ == 1 && se == 1 && se_ == 1) column = 3;
-            if (row == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && sr == 1 && sr_ == 1) column = 3;
-            if (row == 2 && ediagonal == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) column = 3;
-            if (ediagonal == 2 && mdiagonal == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) column = 3;
-            long Sum = ComputerDefense[row] + ComputerDefense[column] + ComputerDefense[mdiagonal] + ComputerDefense[ediagonal];
+            if (curColumn == 2 && curRow == 2 && sc == 1 && sc_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
+            if (curColumn == 2 && mLine == 2 && sc == 1 && sc_ == 1 && sm == 1 && sm_ == 1) curColumn = 3;
+            if (curColumn == 2 && across == 2 && sc == 1 && sc_ == 1 && se == 1 && se_ == 1) curColumn = 3;
+            if (curRow == 2 && mLine == 2 && sm == 1 && sm_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
+            if (curRow == 2 && across == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
+            if (across == 2 && mLine == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) curColumn = 3;
+
+            long Sum = ComputerDefense[curRow] + ComputerDefense[curColumn] + ComputerDefense[mLine] + ComputerDefense[across];
 
             return Sum;
         }
@@ -340,75 +363,71 @@ namespace WinTicTacToe
         private void CheckStep(int x, int y)
         {
             int i = x - 1, j = y;
-            int column = 1, row = 1, mdiagonal = 1, ediagonal = 1;
+            int curColumn = 1, curRow = 1, mLine = 1, across = 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && i >= 0)
             {
-                column++;
+                curColumn++;
                 i--;
             }
             i = x + 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && i <= _rows)
             {
-                column++;
+                curColumn++;
                 i++;
             }
             i = x; j = y - 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && j >= 0)
             {
-                row++;
+                curRow++;
                 j--;
             }
             j = y + 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && j <= _columns)
             {
-                row++;
+                curRow++;
                 j++;
             }
             i = x - 1; j = y - 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && i >= 0 && j >= 0)
             {
-                mdiagonal++;
+                mLine++;
                 i--;
                 j--;
             }
             i = x + 1; j = y + 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && i <= _rows && j <= _columns)
             {
-                mdiagonal++;
+                mLine++;
                 i++;
                 j++;
             }
             i = x - 1; j = y + 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && i >= 0 && j <= _columns)
             {
-                ediagonal++;
+                across++;
                 i--;
                 j++;
             }
             i = x + 1; j = y - 1;
+
             while (_vtMap[x, y] == _vtMap[i, j] && i <= _rows && j >= 0)
             {
-                ediagonal++;
+                across++;
                 i++;
                 j--;
             }
-            if (row >= 5 || column >= 5 || mdiagonal >= 5 || ediagonal >= 5)
+
+            if (curRow >= AppConstant.LineToWin || curColumn >= AppConstant.LineToWin || mLine >= AppConstant.LineToWin || across >= AppConstant.LineToWin)
             {
                 Gameover();
-                if (_isComputer)
-                {
-                    if (_player == 1)
-                        MessageBox.Show("You win!!");
-                    else
-                        MessageBox.Show("You lost!!");
-                }
-                else
-                {
-                    if (_player == 1)
-                        MessageBox.Show("Vinh Win");
-                    else
-                        MessageBox.Show("Player2 Win");
-                }
+                ShowWinner(false);                
             }
         }
 
@@ -467,9 +486,68 @@ namespace WinTicTacToe
             {
                 tmCountDown.Stop();
             }
+
+            psbCooldownTime.PerformStep();
+            if (psbCooldownTime.Value >= psbCooldownTime.Maximum)
+            {
+                Gameover();
+                ShowWinner(true);                
+            }
         }
 
-        private void menuQuit_Click(object sender, EventArgs e)
+        private void ShowWinner(bool isDownTime)
+        {
+            string winner;
+            if (isDownTime)
+            {
+                if (_isComputer)
+                {
+                    winner = _player == 2 ? "You win!!" : "You lost!!";                    
+                }
+                else
+                {
+                    winner = _player == 2 ? "Vinh wins!!" : "Player2 wins!!";                   
+                }
+            }
+            else if (_isComputer)
+            {
+                winner = _player == 1 ? "You win!!" : "You lost!!";                
+            }
+            else
+            {
+                winner = _player == 1 ? "Vinh wins!!" : "Player2 wins!!";
+            }
+
+            MessageBox.Show(winner);
+            lblWinner.Text = $"[{BeatyStringTitleWinner(winner)}] {RandomMsgWin()}";
+        }
+
+        private string BeatyStringTitleWinner(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return "Winner";
+            return name.Replace("!!", "").Replace("wins", "").Replace("win", "");
+        }
+
+        private string RandomMsgWin()
+        {
+            Random random = new Random();
+            int msg = random.Next(1, 5);
+            switch (msg)
+            {
+                case 1:
+                    return "Congratulations!";
+                case 2:
+                    return "Well played!";
+                case 3:
+                    return "You're a champion!";                    
+                case 4: 
+                    return "Fantastic job!";
+                default:
+                    return "Victory is yours!";
+            }            
+        }
+
+        private void MenuQuit_Click(object sender, EventArgs e)
         {
             DialogResult dialog;
             dialog = MessageBox.Show("Are you sure stop the game?", "Close App", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -480,6 +558,4 @@ namespace WinTicTacToe
             }
         }
     }
-
-
 }

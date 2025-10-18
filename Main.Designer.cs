@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.pnShow = new System.Windows.Forms.Panel();
             this.lbRule = new System.Windows.Forms.Label();
-            this.ptbPayer = new System.Windows.Forms.PictureBox();
             this.psbCooldownTime = new System.Windows.Forms.ProgressBar();
             this.txtNamePlayer = new System.Windows.Forms.TextBox();
-            this.imgAvata = new System.Windows.Forms.PictureBox();
             this.tmCountDown = new System.Windows.Forms.Timer(this.components);
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.menuGame = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,16 +42,22 @@
             this.menuUndo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.pnMain = new System.Windows.Forms.Panel();
+            this.lblWinner = new System.Windows.Forms.Label();
+            this.picUser = new System.Windows.Forms.PictureBox();
+            this.ptbPayer = new System.Windows.Forms.PictureBox();
+            this.imgAvata = new System.Windows.Forms.PictureBox();
             this.pnShow.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbPayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAvata)).BeginInit();
             this.mainMenu.SuspendLayout();
             this.pnMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbPayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvata)).BeginInit();
             this.SuspendLayout();
             // 
             // pnShow
             // 
             this.pnShow.BackColor = System.Drawing.Color.BurlyWood;
+            this.pnShow.Controls.Add(this.picUser);
             this.pnShow.Controls.Add(this.lbRule);
             this.pnShow.Controls.Add(this.ptbPayer);
             this.pnShow.Controls.Add(this.psbCooldownTime);
@@ -76,51 +80,28 @@
             this.lbRule.TabIndex = 4;
             this.lbRule.Text = " 5 in a line to win";
             // 
-            // ptbPayer
-            // 
-            this.ptbPayer.BackColor = System.Drawing.Color.Gray;
-            this.ptbPayer.Location = new System.Drawing.Point(151, 286);
-            this.ptbPayer.Name = "ptbPayer";
-            this.ptbPayer.Size = new System.Drawing.Size(80, 86);
-            this.ptbPayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbPayer.TabIndex = 3;
-            this.ptbPayer.TabStop = false;
-            // 
             // psbCooldownTime
             // 
-            this.psbCooldownTime.Location = new System.Drawing.Point(6, 335);
+            this.psbCooldownTime.Location = new System.Drawing.Point(6, 430);
             this.psbCooldownTime.Maximum = 20000;
             this.psbCooldownTime.Name = "psbCooldownTime";
-            this.psbCooldownTime.Size = new System.Drawing.Size(139, 37);
+            this.psbCooldownTime.Size = new System.Drawing.Size(225, 36);
             this.psbCooldownTime.Step = 100;
             this.psbCooldownTime.TabIndex = 1;
             // 
             // txtNamePlayer
             // 
             this.txtNamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNamePlayer.Location = new System.Drawing.Point(6, 286);
+            this.txtNamePlayer.Location = new System.Drawing.Point(8, 387);
             this.txtNamePlayer.Multiline = true;
             this.txtNamePlayer.Name = "txtNamePlayer";
             this.txtNamePlayer.ReadOnly = true;
             this.txtNamePlayer.Size = new System.Drawing.Size(139, 37);
             this.txtNamePlayer.TabIndex = 10;
-            this.txtNamePlayer.Text = "Player";
-            // 
-            // imgAvata
-            // 
-            this.imgAvata.ErrorImage = global::WinTicTacToe.Properties.Resources.Tic_tac_toe;
-            this.imgAvata.Image = global::WinTicTacToe.Properties.Resources.Tic_tac_toe;
-            this.imgAvata.InitialImage = global::WinTicTacToe.Properties.Resources.Tic_tac_toe;
-            this.imgAvata.Location = new System.Drawing.Point(3, 3);
-            this.imgAvata.Name = "imgAvata";
-            this.imgAvata.Size = new System.Drawing.Size(229, 221);
-            this.imgAvata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgAvata.TabIndex = 0;
-            this.imgAvata.TabStop = false;
+            this.txtNamePlayer.Text = "Vinh";
             // 
             // tmCountDown
             // 
-            this.tmCountDown.Interval = 1000;
             this.tmCountDown.Tick += new System.EventHandler(this.TmCountDown_Tick);
             // 
             // mainMenu
@@ -175,19 +156,65 @@
             // 
             this.menuQuit.Name = "menuQuit";
             this.menuQuit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.menuQuit.Size = new System.Drawing.Size(180, 22);
+            this.menuQuit.Size = new System.Drawing.Size(144, 22);
             this.menuQuit.Text = "Quit";
-            this.menuQuit.Click += new System.EventHandler(this.menuQuit_Click);
+            this.menuQuit.Click += new System.EventHandler(this.MenuQuit_Click);
             // 
             // pnMain
             // 
             this.pnMain.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnMain.Controls.Add(this.lblWinner);
             this.pnMain.Controls.Add(this.mainMenu);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(908, 519);
             this.pnMain.TabIndex = 5;
+            // 
+            // lblWinner
+            // 
+            this.lblWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWinner.AutoSize = true;
+            this.lblWinner.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.Location = new System.Drawing.Point(205, 409);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(0, 29);
+            this.lblWinner.TabIndex = 11;
+            // 
+            // picUser
+            // 
+            this.picUser.BackColor = System.Drawing.Color.Gray;
+            this.picUser.Image = global::WinTicTacToe.Properties.Resources.computer2;
+            this.picUser.Location = new System.Drawing.Point(8, 265);
+            this.picUser.Name = "picUser";
+            this.picUser.Size = new System.Drawing.Size(223, 116);
+            this.picUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUser.TabIndex = 11;
+            this.picUser.TabStop = false;
+            // 
+            // ptbPayer
+            // 
+            this.ptbPayer.BackColor = System.Drawing.Color.Gray;
+            this.ptbPayer.Image = global::WinTicTacToe.Properties.Resources.xcopy;
+            this.ptbPayer.Location = new System.Drawing.Point(161, 387);
+            this.ptbPayer.Name = "ptbPayer";
+            this.ptbPayer.Size = new System.Drawing.Size(70, 37);
+            this.ptbPayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbPayer.TabIndex = 3;
+            this.ptbPayer.TabStop = false;
+            // 
+            // imgAvata
+            // 
+            this.imgAvata.ErrorImage = global::WinTicTacToe.Properties.Resources.Tic_tac_toe;
+            this.imgAvata.Image = global::WinTicTacToe.Properties.Resources.Tic_tac_toe;
+            this.imgAvata.InitialImage = global::WinTicTacToe.Properties.Resources.Tic_tac_toe;
+            this.imgAvata.Location = new System.Drawing.Point(3, 3);
+            this.imgAvata.Name = "imgAvata";
+            this.imgAvata.Size = new System.Drawing.Size(229, 221);
+            this.imgAvata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgAvata.TabIndex = 0;
+            this.imgAvata.TabStop = false;
             // 
             // Main
             // 
@@ -203,12 +230,13 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.pnShow.ResumeLayout(false);
             this.pnShow.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbPayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAvata)).EndInit();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbPayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvata)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,6 +258,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuUndo;
         private System.Windows.Forms.ToolStripMenuItem menuQuit;
         private System.Windows.Forms.Panel pnMain;
+        private System.Windows.Forms.Label lblWinner;
+        private System.Windows.Forms.PictureBox picUser;
     }
 }
 

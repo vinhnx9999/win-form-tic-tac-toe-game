@@ -7,5 +7,6 @@
         public static int DownInterval = 100;
         public static string NamePlayer;
         public static int BorderChess = 28;
+        public static int LineToWin = 5;
     }
 }

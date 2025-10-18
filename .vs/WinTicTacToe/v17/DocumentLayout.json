@@ -3,28 +3,34 @@
   "WorkspaceRootPath": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|d:\\containerization\\vinh-github\\vinhgames\\wintictactoe\\models\\chess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:models\\chess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|WinTicTacToe||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\appconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:appconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\models\\chess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:models\\chess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|solutionrelative:properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BE2DEBE-D6E1-481A-A07D-3CDDC5788911}|WinTicTacToe.csproj|d:\\containerization\\vinh-github\\vinhgames\\wintictactoe\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +40,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "WinTicTacToe",
+              "DocumentMoniker": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\WinTicTacToe.csproj",
+              "RelativeDocumentMoniker": "WinTicTacToe.csproj",
+              "ToolTip": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\WinTicTacToe.csproj",
+              "RelativeToolTip": "WinTicTacToe.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-18T01:57:06.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -50,32 +68,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AppConstant.cs",
               "DocumentMoniker": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\AppConstant.cs",
               "RelativeDocumentMoniker": "AppConstant.cs",
               "ToolTip": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\AppConstant.cs",
               "RelativeToolTip": "AppConstant.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T16:00:17.261Z"
+              "WhenOpened": "2025-10-16T16:00:17.261Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Resources.Designer.cs",
               "DocumentMoniker": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\Properties\\Resources.Designer.cs",
               "RelativeDocumentMoniker": "Properties\\Resources.Designer.cs",
               "ToolTip": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\Properties\\Resources.Designer.cs",
               "RelativeToolTip": "Properties\\Resources.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAHgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T15:36:00.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Chess.cs",
               "DocumentMoniker": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\Models\\Chess.cs",
               "RelativeDocumentMoniker": "Models\\Chess.cs",
@@ -83,25 +102,24 @@
               "RelativeToolTip": "Models\\Chess.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T15:20:04.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T15:20:04.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Main.cs",
               "DocumentMoniker": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\Main.cs",
               "RelativeToolTip": "Main.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAmwGcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T15:16:51.044Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Main.cs [Design]",
               "DocumentMoniker": "D:\\Containerization\\Vinh-Github\\VinhGames\\WinTicTacToe\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
