@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using WinTicTacToe.Models;
 
@@ -11,16 +12,12 @@ namespace WinTicTacToe
         private readonly Label[,] _map;
         private readonly int _columns;
         private readonly int _rows;
-
         private int _player;
         private bool _gameover;
-
         private readonly bool _isComputer;
         private readonly int[,] _vtMap;
         private readonly Stack<Chess> _chesses;
-        private Chess _chess;
-        private readonly int[] ComputerAttack = new int[] { 0, 9, 54, 162, 1458, 13112, 118008 };
-        private readonly int[] ComputerDefense = new int[] { 0, 3, 27, 99, 729, 6561, 59049 };
+        private Chess _chess;        
 
         public Main()
         {
@@ -260,7 +257,10 @@ namespace WinTicTacToe
             if (curRow == 2 && across == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
             if (across == 2 && mLine == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) curColumn = 3;
 
-            long Sum = ComputerAttack[curRow] + ComputerAttack[curColumn] + ComputerAttack[mLine] + ComputerAttack[across];
+            long Sum = AppConstant.ComputerAttack[curRow] + 
+                AppConstant.ComputerAttack[curColumn] + 
+                AppConstant.ComputerAttack[mLine] + 
+                AppConstant.ComputerAttack[across];
 
             return Sum;
         }
@@ -355,7 +355,10 @@ namespace WinTicTacToe
             if (curRow == 2 && across == 2 && se == 1 && se_ == 1 && sr == 1 && sr_ == 1) curColumn = 3;
             if (across == 2 && mLine == 2 && sm == 1 && sm_ == 1 && se == 1 && se_ == 1) curColumn = 3;
 
-            long Sum = ComputerDefense[curRow] + ComputerDefense[curColumn] + ComputerDefense[mLine] + ComputerDefense[across];
+            long Sum = AppConstant.ComputerDefense[curRow] + 
+                AppConstant.ComputerDefense[curColumn] + 
+                AppConstant.ComputerDefense[mLine] + 
+                AppConstant.ComputerDefense[across];
 
             return Sum;
         }
@@ -531,22 +534,22 @@ namespace WinTicTacToe
         private string RandomMsgWin()
         {
             Random random = new Random();
-            int msg = random.Next(1, 5);
-            switch (msg)
+            int randomNumber = random.Next(1, 5);
+            switch (randomNumber)
             {
                 case 1:
                     return "Congratulations!";
                 case 2:
                     return "Well played!";
                 case 3:
-                    return "You're a champion!";                    
-                case 4: 
+                    return "You're a champion!";
+                case 4:
                     return "Fantastic job!";
                 default:
                     return "Victory is yours!";
-            }            
+            }
         }
-
+         
         private void MenuQuit_Click(object sender, EventArgs e)
         {
             DialogResult dialog;
